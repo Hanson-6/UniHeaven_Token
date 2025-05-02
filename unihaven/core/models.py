@@ -4,6 +4,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 import math
 import uuid  # 用于生成唯一的 Token
+from datetime import timedelta, datetime
 
 class Owner(models.Model):
     """
@@ -164,8 +165,7 @@ class Accommodation(models.Model):
     geo_address = models.CharField(max_length=19)
     latitude = models.FloatField()
     longitude = models.FloatField()
-    available_from = models.DateField()
-    available_to = models.DateField()
+    # available_from and available_to are removed and replaced by AvailabilitySlot
     monthly_rent = models.DecimalField(max_digits=10, decimal_places=2)
     owner = models.ForeignKey(
         Owner,
@@ -176,6 +176,9 @@ class Accommodation(models.Model):
     is_available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
+    # Minimum reservation period in days
+    min_reservation_days = models.PositiveIntegerField(default=1)
 
     def calculate_distance(self, campus: Campus):
         R = 6371.0
@@ -196,6 +199,44 @@ class Accommodation(models.Model):
 
     def rating_count(self):
         return self.ratings.count()
+    
+    def get_available_slots(self):
+        """Return all available slots sorted by start date"""
+        return self.availability_slots.filter(is_available=True).order_by('start_date')
+    
+    def is_available_for_dates(self, start_date, end_date):
+        """Check if the accommodation is available for the given date range"""
+        if not self.is_available:
+            return False
+        
+        # 确保日期是date对象而不是字符串
+        if isinstance(start_date, str):
+            start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+        
+        if isinstance(end_date, str):
+            end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+            
+        # 检查预订期是否至少最短天数
+        if (end_date - start_date).days + 1 < self.min_reservation_days:
+            return False
+            
+        # 查找包含请求时间段的slot
+        slots = self.availability_slots.filter(
+            is_available=True,
+            start_date__lte=start_date,
+            end_date__gte=end_date
+        )
+        return slots.exists()
+    
+    def update_availability_status(self):
+        """
+        Update is_available status based on whether there are any available slots
+        """
+        has_available_slots = self.availability_slots.filter(is_available=True).exists()
+        if self.is_available != has_available_slots:
+            self.is_available = has_available_slots
+            self.save(update_fields=['is_available'])
+
 
     def __str__(self):
         return self.name
@@ -203,6 +244,106 @@ class Accommodation(models.Model):
     class Meta:
         verbose_name = "Accommodation"
         verbose_name_plural = "Accommodations"
+
+
+class AvailabilitySlot(models.Model):
+    """
+    Time period when an accommodation is available for reservation
+    """
+    accommodation = models.ForeignKey(
+        Accommodation,
+        related_name='availability_slots',
+        on_delete=models.CASCADE
+    )
+    start_date = models.DateField()
+    end_date = models.DateField()
+    is_available = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name = "Availability Slot"
+        verbose_name_plural = "Availability Slots"
+        
+    def __str__(self):
+        return f"{self.accommodation.name}: {self.start_date} to {self.end_date}"
+    
+    def duration_days(self):
+        """Return the duration of the slot in days"""
+        return (self.end_date - self.start_date).days + 1
+    
+    def split_slot(self, start_date, end_date):
+        """
+        Split this slot into up to 3 slots based on the reservation dates
+        Returns a tuple of (before_slot, after_slot) which may be None if not created
+        """
+        before_slot = None
+        after_slot = None
+        
+        # 确保日期是date对象而不是字符串
+        if isinstance(start_date, str):
+            start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+        
+        if isinstance(end_date, str):
+            end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+        
+        # 创建预订前的slot（如果需要）
+        if start_date > self.start_date:
+            before_slot = AvailabilitySlot.objects.create(
+                accommodation=self.accommodation,
+                start_date=self.start_date,
+                end_date=start_date - timedelta(days=1),
+                is_available=True
+            )
+        
+        # 创建预订后的slot（如果需要）
+        if end_date < self.end_date:
+            after_slot = AvailabilitySlot.objects.create(
+                accommodation=self.accommodation,
+                start_date=end_date + timedelta(days=1),
+                end_date=self.end_date,
+                is_available=True
+            )
+            
+        return (before_slot, after_slot)
+    
+    def save(self, *args, **kwargs):
+        """Override save to update accommodation availability status"""
+        super().save(*args, **kwargs)
+        if self.is_available:
+            self.accommodation.update_availability_status()
+
+    def delete(self, *args, **kwargs):
+        """Override delete to update accommodation availability status"""
+        accommodation = self.accommodation
+        super().delete(*args, **kwargs)
+        accommodation.update_availability_status()
+            
+    @classmethod
+    def merge_adjacent_slots(cls, accommodation):
+        """
+        Find and merge adjacent availability slots for the given accommodation
+        """
+        slots = accommodation.availability_slots.filter(is_available=True).order_by('start_date')
+        if not slots or slots.count() <= 1:
+            return
+            
+        # Iterate through slots and merge adjacent ones
+        i = 0
+        while i < slots.count() - 1:
+            current = slots[i]
+            next_slot = slots[i+1]
+            
+            # Check if slots are adjacent (end date of current + 1 day is start date of next)
+            if current.end_date + timedelta(days=1) == next_slot.start_date:
+                # Merge slots
+                current.end_date = next_slot.end_date
+                current.save()
+                next_slot.delete()
+                
+                # Refresh queryset after modification
+                slots = accommodation.availability_slots.filter(is_available=True).order_by('start_date')
+            else:
+                i += 1
 
 class Reservation(models.Model):
     """
@@ -228,15 +369,37 @@ class Reservation(models.Model):
         return self.status == 'COMPLETED' and not hasattr(self, 'rating')
 
     def can_be_cancelled(self):
-        return self.status == 'PENDING'
+        return self.status in ['PENDING'] #, 'CONFIRMED']
+        
+    def is_cancelled(self):
+        return self.status == 'CANCELLED'
 
     def cancel(self):
+        """
+        Cancel a reservation and create availability slot for the reserved period
+        Returns True if successfully cancelled, False otherwise
+        """
+        if self.is_cancelled():
+            return False
+            
         if self.can_be_cancelled():
             self.status = 'CANCELLED'
             self.save()
-            self.accommodation.is_available = True
-            self.accommodation.save()
+            
+            # Create a new availability slot for the cancelled reservation
+            AvailabilitySlot.objects.create(
+                accommodation=self.accommodation,
+                start_date=self.reserved_from,
+                end_date=self.reserved_to,
+                is_available=True
+            )
+            
+            # Merge adjacent slots if possible
+            AvailabilitySlot.merge_adjacent_slots(self.accommodation)
+                    
+            return True
         return False
+        
 
     def __str__(self):
         return f"{self.member.name}'s reservation of {self.accommodation.name}"

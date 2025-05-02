@@ -10,18 +10,31 @@ from django.http import HttpResponse
 import os
 from django.conf import settings
 from rest_framework.pagination import PageNumberPagination
-from .utils import AddressLookupService, validate_required_fields
 from django.core.mail import send_mail
 from .models import (
     Accommodation, Member, Specialist, University,
-    Reservation, Rating, Campus, Owner, ActionLog
+    Reservation, Rating, Campus, Owner, ActionLog, AvailabilitySlot
 )
 from .serializers import (
     AccommodationSerializer, MemberSerializer, UniversitySerializer,
-    CEDARSSpecialistSerializer, ReservationSerializer, RatingSerializer, CampusSerializer, ActionLogSerializer
+    CEDARSSpecialistSerializer, ReservationSerializer, RatingSerializer, 
+    CampusSerializer, ActionLogSerializer, AvailabilitySlotSerializer
 )
 from .authentication import UniversityTokenAuthentication
 from .permissions import IsUniversityAuthenticated
+
+from datetime import datetime
+
+
+from .utils import (
+    validate_required_fields, 
+    AddressLookupService,
+    notify_reservation_created,
+    notify_reservation_cancelled,
+    notify_reservation_status_changed
+)
+
+
 
 logger = logging.getLogger(__name__)
 
@@ -38,7 +51,7 @@ class AccommodationViewSet(viewsets.ModelViewSet):
     serializer_class = AccommodationSerializer
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['name', 'building_name', 'description', 'type', 'address']
-    ordering_fields = ['monthly_rent', 'num_bedrooms', 'num_beds', 'available_from']
+    ordering_fields = ['monthly_rent', 'num_bedrooms', 'num_beds']
     authentication_classes = [UniversityTokenAuthentication]
     permission_classes = [IsUniversityAuthenticated]
 
@@ -98,10 +111,6 @@ class AccommodationViewSet(viewsets.ModelViewSet):
 
         if accommodation_type:
             queryset = queryset.filter(type=accommodation_type)
-        if available_from:
-            queryset = queryset.filter(available_from__lte=available_from)
-        if available_to:
-            queryset = queryset.filter(available_to__gte=available_to)
         if num_beds:
             queryset = queryset.filter(num_beds__gte=num_beds)
         if num_bedrooms:
@@ -111,7 +120,17 @@ class AccommodationViewSet(viewsets.ModelViewSet):
         if max_price:
             queryset = queryset.filter(monthly_rent__lte=max_price)
 
+        # Filter accommodations by availability dates
         if available_from and available_to:
+            # Find accommodations that have an availability slot covering the requested dates
+            available_accommodations = []
+            for accommodation in queryset:
+                if accommodation.is_available_for_dates(available_from, available_to):
+                    available_accommodations.append(accommodation.id)
+            
+            queryset = queryset.filter(id__in=available_accommodations)
+
+            # Exclude accommodations with overlapping reservations
             queryset = queryset.exclude(
                 reservation__reserved_from__lt=available_to,
                 reservation__reserved_to__gt=available_from,
@@ -159,19 +178,77 @@ class AccommodationViewSet(viewsets.ModelViewSet):
         except ValueError as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
         
+        reserved_from = request.data.get('reserved_from')
+        reserved_to = request.data.get('reserved_to')
+        member_id = request.data.get('member_id')
+        
+        # Get the member object
+        try:
+            member = Member.objects.get(pk=member_id)
+        except Member.DoesNotExist:
+            return Response({"error": "Member not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+        # Check if member belongs to a university associated with the accommodation
+        if not accommodation.universities.filter(id=member.university.id).exists():
+            return Response({"error": "You can only reserve accommodations associated with your university"}, 
+                        status=status.HTTP_403_FORBIDDEN)
+        
+        # Ensure dates are date objects not strings
+        if isinstance(reserved_from, str):
+            try:
+                reserved_from = datetime.strptime(reserved_from, '%Y-%m-%d').date()
+            except ValueError:
+                return Response({"error": "Invalid date format for reserved_from. Use YYYY-MM-DD format."}, 
+                            status=status.HTTP_400_BAD_REQUEST)
+        
+        if isinstance(reserved_to, str):
+            try:
+                reserved_to = datetime.strptime(reserved_to, '%Y-%m-%d').date()
+            except ValueError:
+                return Response({"error": "Invalid date format for reserved_to. Use YYYY-MM-DD format."}, 
+                            status=status.HTTP_400_BAD_REQUEST)
+        
+        # Check if dates are available
+        if not accommodation.is_available_for_dates(reserved_from, reserved_to):
+            return Response({"error": "The accommodation is not available for the requested dates"}, 
+                        status=status.HTTP_400_BAD_REQUEST)
+        
         serializer = ReservationSerializer(data={
             'accommodation': accommodation.id,
-            'member': request.data.get('member_id'),
-            'reserved_from': request.data.get('reserved_from'),
-            'reserved_to': request.data.get('reserved_to'),
+            'member': member_id,
+            'reserved_from': reserved_from,
+            'reserved_to': reserved_to,
             'contact_name': request.data.get('contact_name'),
             'contact_phone': request.data.get('contact_phone'),
             'status': 'PENDING'
         })
+        
         if serializer.is_valid():
+            # Find available slot covering the reservation period
+            slot = AvailabilitySlot.objects.filter(
+                accommodation=accommodation,
+                is_available=True,
+                start_date__lte=reserved_from,
+                end_date__gte=reserved_to
+            ).first()
+            
+            if not slot:
+                return Response({"error": "No available slot found for these dates"}, 
+                            status=status.HTTP_400_BAD_REQUEST)
+            
+            # Split the slot for the reservation
+            before_slot, after_slot = slot.split_slot(reserved_from, reserved_to)
+            
+            # Delete the original slot
+            slot.delete()
+            
+            # Create the reservation
             reservation = serializer.save()
-            accommodation.is_available = False
-            accommodation.save()
+            
+            # Send notification
+            notify_reservation_created(reservation)
+            
+            # Log the action
             ActionLog.objects.create(
                 action_type="CREATE_RESERVATION",
                 user_type="MEMBER",
@@ -180,7 +257,12 @@ class AccommodationViewSet(viewsets.ModelViewSet):
                 reservation_id=reservation.id,
                 details=f"Created reservation for '{accommodation.name}'"
             )
+            
+            # Update accommodation availability status
+            accommodation.update_availability_status()
+            
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @action(detail=True, methods=['post'])
@@ -245,26 +327,112 @@ class AccommodationViewSet(viewsets.ModelViewSet):
             )
         return Response({"status": f"Accommodation '{name}' successfully deleted"}, status=status.HTTP_200_OK)
 
+    @action(detail=True, methods=['post'], url_path='add-availability')
+    def add_availability(self, request, pk=None):
+        """Add a new availability slot to the accommodation"""
+        accommodation = self.get_object()
+        
+        try:
+            validate_required_fields(request.data, ['start_date', 'end_date'])
+        except ValueError as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
+        start_date = request.data.get('start_date')
+        end_date = request.data.get('end_date')
+        
+        # Create new availability slot
+        slot = AvailabilitySlot.objects.create(
+            accommodation=accommodation,
+            start_date=start_date,
+            end_date=end_date,
+            is_available=True
+        )
+        
+        # Merge adjacent slots if any
+        AvailabilitySlot.merge_adjacent_slots(accommodation)
+        
+        # Update accommodation availability
+        if not accommodation.is_available:
+            accommodation.is_available = True
+            accommodation.save()
+        
+        return Response({
+            "status": "New availability slot added",
+            "slot": AvailabilitySlotSerializer(slot).data
+        }, status=status.HTTP_201_CREATED)
+
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
     authentication_classes = [UniversityTokenAuthentication]
     permission_classes = [IsUniversityAuthenticated]
+    
+    def get_queryset(self):
+        """
+        Filter reservations based on the authenticated university
+        Only show reservations from members of this university or for accommodations
+        associated with this university
+        """
+        university = self.request.user
+        
+        # Get all members of this university
+        university_members = Member.objects.filter(university=university).values_list('id', flat=True)
+        
+        # Get all accommodations associated with this university
+        university_accommodations = Accommodation.objects.filter(
+            universities=university
+        ).values_list('id', flat=True)
+        
+        # Return reservations that are either:
+        # 1. Made by members of this university, or
+        # 2. For accommodations associated with this university
+        return Reservation.objects.filter(
+            Q(member_id__in=university_members) & 
+            Q(accommodation_id__in=university_accommodations)
+        )
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        reservation = serializer.save()
-        university = request.user  # 通过 Token 认证获取大学
-        specialists = Specialist.objects.filter(university=university)
-        for specialist in specialists:
-            send_mail(
-                'New Reservation Created',
-                f'A new reservation has been created for accommodation {reservation.accommodation.name}.',
-                settings.DEFAULT_FROM_EMAIL,
-                [specialist.email],
-                fail_silently=False,
+        
+        # Get accommodation and check for available slots
+        accommodation_id = serializer.validated_data.get('accommodation').id
+        reserved_from = serializer.validated_data.get('reserved_from')
+        reserved_to = serializer.validated_data.get('reserved_to')
+        
+        accommodation = Accommodation.objects.get(pk=accommodation_id)
+        
+        if not accommodation.is_available_for_dates(reserved_from, reserved_to):
+            return Response(
+                {"error": "The accommodation is not available for the requested dates"}, 
+                status=status.HTTP_400_BAD_REQUEST
             )
+            
+        # Find the availability slot that covers the reservation period
+        slot = AvailabilitySlot.objects.filter(
+            accommodation=accommodation,
+            is_available=True,
+            start_date__lte=reserved_from,
+            end_date__gte=reserved_to
+        ).first()
+        
+        if not slot:
+            return Response({"error": "No available slot found for these dates"}, 
+                        status=status.HTTP_400_BAD_REQUEST)
+        
+        # Split the slot for the reservation
+        before_slot, after_slot = slot.split_slot(reserved_from, reserved_to)
+        
+        # Delete the original slot
+        slot.delete()
+        
+        # Create the reservation
+        reservation = serializer.save()
+        
+        # Send notification
+        notify_reservation_created(reservation)
+        
+        # Log the action
         ActionLog.objects.create(
             action_type="CREATE_RESERVATION",
             user_type="MEMBER",
@@ -273,42 +441,52 @@ class ReservationViewSet(viewsets.ModelViewSet):
             reservation_id=reservation.id,
             details=f"Created reservation for '{reservation.accommodation.name}'"
         )
+        
+        # Update accommodation availability status
+        if not accommodation.availability_slots.filter(is_available=True).exists():
+            accommodation.is_available = False
+            accommodation.save()
+            
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     @action(detail=True, methods=['post'], url_path='cancel')
     def cancel(self, request, pk=None):
         reservation = self.get_object()
-        if reservation.status == 'CONFIRMED':
-            return Response({"error": "Cannot cancel a confirmed reservation"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        # Check if reservation is already cancelled
+        if reservation.is_cancelled():
+            return Response({"error": "This reservation has already been cancelled"}, 
+                        status=status.HTTP_400_BAD_REQUEST)
+        
+        # Check if reservation can be cancelled
+        if not reservation.can_be_cancelled():
+            return Response({"error": "This reservation cannot be cancelled"}, 
+                        status=status.HTTP_400_BAD_REQUEST)
         
         old_status = reservation.status
-        reservation.status = 'CANCELLED'
-        reservation.save()
         accommodation = reservation.accommodation
-        accommodation.is_available = True
-        accommodation.save()
-        university = request.user
-
-        specialists = Specialist.objects.filter(university=university)
-
-        for specialist in specialists:
-            send_mail(
-                'Reservation Cancelled',
-                f'Reservation for accommodation {reservation.accommodation.name} has been cancelled.',
-                settings.DEFAULT_FROM_EMAIL,
-                [specialist.email],
-                fail_silently=False,
+        
+        # Call the cancel method, which handles creating availability slot and merging
+        if reservation.cancel():
+            # Send notification
+            notify_reservation_cancelled(reservation)
+            
+            # Log the action
+            ActionLog.objects.create(
+                action_type="CANCEL_RESERVATION",
+                user_type="MEMBER",
+                user_id=reservation.member.id,
+                accommodation_id=accommodation.id,
+                reservation_id=reservation.id,
+                details=f"Reservation cancelled; status changed from {old_status} to CANCELLED"
             )
             
-        ActionLog.objects.create(
-            action_type="CANCEL_RESERVATION",
-            user_type="MEMBER",
-            user_id=reservation.member.id,
-            accommodation_id=accommodation.id,
-            reservation_id=reservation.id,
-            details=f"Reservation cancelled; status changed from {old_status} to CANCELLED"
-        )
-        return Response({"status": "Reservation cancelled successfully"}, status=status.HTTP_200_OK)
+            # Update accommodation availability status
+            accommodation.update_availability_status()
+            
+            return Response({"status": "Reservation cancelled successfully"}, status=status.HTTP_200_OK)
+        else:
+            return Response({"error": "Failed to cancel reservation"}, status=status.HTTP_400_BAD_REQUEST)
 
     @action(detail=True, methods=['post'], url_path='update-status')
     def update_status(self, request, pk=None):
@@ -319,34 +497,52 @@ class ReservationViewSet(viewsets.ModelViewSet):
             return Response({"error": "Invalid status value"}, status=status.HTTP_400_BAD_REQUEST)
 
         old_status = reservation.status
-        reservation.status = new_status
-        reservation.save()
-
+        
+        # If status is not changing, return early
+        if old_status == new_status:
+            return Response({"message": "Status is already set to this value"}, status=status.HTTP_200_OK)
+        
+        # If changing status to CANCELLED, use the cancel method
         if new_status == 'CANCELLED' and old_status != 'CANCELLED':
-            accommodation = reservation.accommodation
-            accommodation.is_available = True
-            accommodation.save()
-
-        university = request.user
-        specialists = Specialist.objects.filter(university=university)
-        for specialist in specialists:
-            send_mail(
-                'Reservation Status Updated',
-                f'Reservation status for accommodation {reservation.accommodation.name} has been updated to {new_status}.',
-                settings.DEFAULT_FROM_EMAIL,
-                [specialist.email],
-                fail_silently=False,
+            if reservation.cancel():
+                # Send notification
+                notify_reservation_cancelled(reservation)
+                
+                # Log the action
+                ActionLog.objects.create(
+                    action_type="UPDATE_RESERVATION_STATUS",
+                    user_type="MEMBER",
+                    user_id=reservation.member.id,
+                    accommodation_id=reservation.accommodation.id,
+                    reservation_id=reservation.id,
+                    details=f"Reservation status updated from {old_status} to {new_status}"
+                )
+                
+                serializer = ReservationSerializer(reservation)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                return Response({"error": "Failed to cancel reservation"}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            # For other status updates
+            reservation.status = new_status
+            reservation.save()
+            
+            # Send notification - special attention for CONFIRMED status
+            notify_reservation_status_changed(reservation, old_status)
+            
+            # Log the action
+            ActionLog.objects.create(
+                action_type="UPDATE_RESERVATION_STATUS",
+                user_type="MEMBER",
+                user_id=reservation.member.id,
+                accommodation_id=reservation.accommodation.id,
+                reservation_id=reservation.id,
+                details=f"Reservation status updated from {old_status} to {new_status}"
             )
-        ActionLog.objects.create(
-            action_type="UPDATE_RESERVATION_STATUS",
-            user_type="MEMBER",
-            user_id=reservation.member.id,
-            accommodation_id=reservation.accommodation.id,
-            reservation_id=reservation.id,
-            details=f"Reservation status updated from {old_status} to {new_status}"
-        )
-        serializer = ReservationSerializer(reservation)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+            
+            serializer = ReservationSerializer(reservation)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class MemberViewSet(viewsets.ModelViewSet):
     queryset = Member.objects.all()

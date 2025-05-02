@@ -2,7 +2,7 @@
 
 from django.db.models.signals import post_migrate
 from django.dispatch import receiver
-from .models import University, Member, Owner, Accommodation, Specialist, Campus, Reservation
+from .models import University, Member, Owner, Accommodation, Specialist, Campus, Reservation, AvailabilitySlot
 from .utils import AddressLookupService
 from datetime import date
 
@@ -13,6 +13,64 @@ def create_initial_data(sender, **kwargs):
         hku, created = University.objects.get_or_create(name='HKU', defaults={'country': 'China', 'address': 'Hong Kong'})
         hkust, created = University.objects.get_or_create(name='HKUST', defaults={'country': 'China', 'address': 'Hong Kong'})
         cuhk, created = University.objects.get_or_create(name='CUHK', defaults={'country': 'China', 'address': 'Hong Kong'})
+
+        # Create specialists (2 for each university)
+        # HKU Specialists
+        specialist1_hku, created = Specialist.objects.get_or_create(
+            name='David Wong',
+            email='davidwong@hku.hk',
+            defaults={
+                'phone': '2859 2111',
+                'university': hku
+            }
+        )
+        
+        specialist2_hku, created = Specialist.objects.get_or_create(
+            name='Sarah Chen',
+            email='sarahchen@hku.hk',
+            defaults={
+                'phone': '2859 2112',
+                'university': hku
+            }
+        )
+        
+        # CUHK Specialists
+        specialist1_cuhk, created = Specialist.objects.get_or_create(
+            name='Michael Zhang',
+            email='michaelzhang@cuhk.hk',
+            defaults={
+                'phone': '3943 7000',
+                'university': cuhk
+            }
+        )
+        
+        specialist2_cuhk, created = Specialist.objects.get_or_create(
+            name='Emily Liu',
+            email='emilyliu@cuhk.hk',
+            defaults={
+                'phone': '3943 7001',
+                'university': cuhk
+            }
+        )
+        
+        # HKUST Specialists
+        specialist1_hkust, created = Specialist.objects.get_or_create(
+            name='Robert Tam',
+            email='roberttam@hkust.hk',
+            defaults={
+                'phone': '2358 6000',
+                'university': hkust
+            }
+        )
+        
+        specialist2_hkust, created = Specialist.objects.get_or_create(
+            name='Jessica Choi',
+            email='jessicachoi@hkust.hk',
+            defaults={
+                'phone': '2358 6001',
+                'university': hkust
+            }
+        )
 
         # Create owners
         george, created = Owner.objects.get_or_create(name='George', defaults={'email': 'george@example.com', 'phone': '88888888', 'address': 'Hong Kong'})
@@ -36,17 +94,24 @@ def create_initial_data(sender, **kwargs):
                 'flat_number': 'C',
                 'floor_number': '3',
                 'address': 'Room 1, Flat C, Floor 3, Jolly Villa',
-                'available_from': date(2025, 3, 1),
-                'available_to': date(2025, 8, 31),
                 'monthly_rent': 5000,
                 'owner': george,
                 'is_available': True,
                 'latitude': JV_latitude,
                 'longitude': JV_longitude,
-                'geo_address': JV_geo_address
+                'geo_address': JV_geo_address,
+                'min_reservation_days': 1
             }
         )
         JV.universities.add(hku, hkust)
+        
+        # Create availability slot for JV
+        jv_slot, created = AvailabilitySlot.objects.get_or_create(
+            accommodation=JV,
+            start_date=date(2025, 3, 1),
+            end_date=date(2025, 8, 31),
+            is_available=True
+        )
 
         SVG_location = AddressLookupService.lookup_address("South View Garden")
         SVG_latitude = SVG_location['latitude'] if SVG_location else 22.27731
@@ -64,17 +129,24 @@ def create_initial_data(sender, **kwargs):
                 'flat_number': 'G',
                 'floor_number': '22',
                 'address': 'Flat G, Floor 22, South View Garden',
-                'available_from': date(2025, 4, 1),
-                'available_to': date(2025, 10, 31),
                 'monthly_rent': 5000,
                 'owner': george,
                 'is_available': True,
                 'latitude': SVG_latitude,
                 'longitude': SVG_longitude,
-                'geo_address': SVG_geo_address
+                'geo_address': SVG_geo_address,
+                'min_reservation_days': 1
             }
         )
         SVG.universities.add(hku)
+        
+        # Create availability slot for SVG
+        svg_slot, created = AvailabilitySlot.objects.get_or_create(
+            accommodation=SVG,
+            start_date=date(2025, 4, 1),
+            end_date=date(2025, 10, 31),
+            is_available=True
+        )
 
         GH_location = AddressLookupService.lookup_address("Glen Haven")
         GH_latitude = GH_location['latitude'] if GH_location else 22.27731
@@ -93,17 +165,24 @@ def create_initial_data(sender, **kwargs):
                 'num_bedrooms': 2,
                 'num_beds': 4,
                 'address': 'Room 3, Flat E, Glen Haven',
-                'available_from': date(2025, 1, 1),
-                'available_to': date(2025, 12, 31),
                 'monthly_rent': 5000,
                 'owner': ian,
                 'is_available': True,
                 'latitude': GH_latitude,
                 'longitude': GH_longitude,
-                'geo_address': GH_geo_address
+                'geo_address': GH_geo_address,
+                'min_reservation_days': 1
             }
         )
         GH.universities.add(hku, cuhk)
+        
+        # Create availability slot for GH
+        gh_slot, created = AvailabilitySlot.objects.get_or_create(
+            accommodation=GH,
+            start_date=date(2025, 1, 1),
+            end_date=date(2025, 12, 31),
+            is_available=True
+        )
 
         PM_location = AddressLookupService.lookup_address("Prosperity Mansion")
         PM_latitude = PM_location['latitude'] if PM_location else 22.27731
@@ -121,17 +200,24 @@ def create_initial_data(sender, **kwargs):
                 'num_bedrooms': 2,
                 'num_beds': 4,
                 'address': 'Flat D, Prosperity Mansion',
-                'available_from': date(2025, 3, 15),
-                'available_to': date(2025, 7, 31),
                 'monthly_rent': 5000,
                 'owner': ian,
                 'is_available': True,
                 'latitude': PM_latitude,
                 'longitude': PM_longitude,
-                'geo_address': PM_geo_address
+                'geo_address': PM_geo_address,
+                'min_reservation_days': 1
             }
         )
         PM.universities.add(cuhk)
+        
+        # Create availability slot for PM
+        pm_slot, created = AvailabilitySlot.objects.get_or_create(
+            accommodation=PM,
+            start_date=date(2025, 3, 15),
+            end_date=date(2025, 7, 31),
+            is_available=True
+        )
 
         # Create members
         AnsonLee, created = Member.objects.get_or_create(
@@ -152,15 +238,15 @@ def create_initial_data(sender, **kwargs):
             phone='3910 1481',
             university=cuhk
         )
-        FredLam = Member.objects.create(
+        FredLam, created = Member.objects.get_or_create(
             name='Fred Lam',
             email='fredlam@gmail.com',
             phone='3859 4679',
             university=hku
         )
 
-        # Create Reservations
-        Reservation.objects.get_or_create(
+        # Create Reservations and update availability slots
+        reservation1, created = Reservation.objects.get_or_create(
             accommodation=SVG,
             member=AnsonLee,
             reserved_from=date(2025, 4, 15),
@@ -169,8 +255,16 @@ def create_initial_data(sender, **kwargs):
             contact_phone='22904324',
             status='CONFIRMED',
         )
+        
+        # Split SVG slot for reservation1
+        if created and svg_slot:
+            before_slot, after_slot = svg_slot.split_slot(
+                reservation1.reserved_from, 
+                reservation1.reserved_to
+            )
+            svg_slot.delete()
 
-        Reservation.objects.get_or_create(
+        reservation2, created = Reservation.objects.get_or_create(
             accommodation=JV,
             member=AnsonLee,
             reserved_from=date(2025, 4, 22),
@@ -179,18 +273,37 @@ def create_initial_data(sender, **kwargs):
             contact_phone='22904324',
             status='CONFIRMED',
         )
+        
+        # Split JV slot for reservation2
+        if created and jv_slot:
+            before_slot, after_slot = jv_slot.split_slot(
+                reservation2.reserved_from, 
+                reservation2.reserved_to
+            )
+            jv_slot.delete()
 
-        Reservation.objects.get_or_create(
-            accommodation=JV,
-            member=AnsonLee,
-            reserved_from=date(2025, 6, 15),
-            reserved_to=date(2025, 6, 30),
-            contact_name='Anson Lee',
-            contact_phone='22904324',
-            status='CANCELLED',
-        )
+        # reservation3, created = Reservation.objects.get_or_create(
+        #     accommodation=JV,
+        #     member=AnsonLee,
+        #     reserved_from=date(2025, 6, 15),
+        #     reserved_to=date(2025, 6, 30),
+        #     contact_name='Anson Lee',
+        #     contact_phone='22904324',
+        #     status='PENDING',
+        # )
+        
+        # # For cancelled reservation, create an availability slot
+        # if created:
+        #     AvailabilitySlot.objects.get_or_create(
+        #         accommodation=JV,
+        #         start_date=reservation3.reserved_from,
+        #         end_date=reservation3.reserved_to,
+        #         is_available=True
+        #     )
+        #     # Merge adjacent slots
+        #     AvailabilitySlot.merge_adjacent_slots(JV)
 
-        Reservation.objects.get_or_create(
+        reservation4, created = Reservation.objects.get_or_create(
             accommodation=GH,
             member=CandyChan,
             reserved_from=date(2025, 5, 22),
@@ -199,8 +312,16 @@ def create_initial_data(sender, **kwargs):
             contact_phone='35286925',
             status='CONFIRMED',
         )
+        
+        # Split GH slot for reservation4
+        if created and gh_slot:
+            before_slot, after_slot = gh_slot.split_slot(
+                reservation4.reserved_from, 
+                reservation4.reserved_to
+            )
+            gh_slot.delete()
 
-        Reservation.objects.get_or_create(
+        reservation5, created = Reservation.objects.get_or_create(
             accommodation=GH,
             member=BillyJohnson,
             reserved_from=date(2025, 3, 1),
@@ -209,6 +330,21 @@ def create_initial_data(sender, **kwargs):
             contact_phone='39101481',
             status='CONFIRMED',
         )
+        
+        # Split GH slot for reservation5 (if not already split)
+        gh_early_slot = AvailabilitySlot.objects.filter(
+            accommodation=GH,
+            start_date__lte=date(2025, 3, 1),
+            end_date__gte=date(2025, 5, 7),
+            is_available=True
+        ).first()
+        
+        if created and gh_early_slot:
+            before_slot, after_slot = gh_early_slot.split_slot(
+                reservation5.reserved_from, 
+                reservation5.reserved_to
+            )
+            gh_early_slot.delete()
 
         # Create campuses
         Campus.objects.get_or_create(name='Main Campus', university=hku, defaults={'latitude': 22.28405, 'longitude': 114.13784})

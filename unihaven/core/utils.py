@@ -3,6 +3,9 @@ import logging
 import math
 import requests
 
+from django.core.mail import send_mail, send_mass_mail
+from django.conf import settings
+
 logger = logging.getLogger(__name__)
 
 class AddressLookupService:
@@ -76,3 +79,116 @@ def validate_required_fields(data, fields):
     missing = [field for field in fields if field not in data or not data[field]]
     if missing:
         raise ValueError(f"Missing required field(s): {', '.join(missing)}")
+
+
+def send_notification_to_specialists(university, subject, message):
+    """
+    Send notification to all specialists of a university
+    
+    Args:
+        university: University object
+        subject: Email subject
+        message: Email message
+    
+    Returns:
+        bool: True if emails were sent successfully, False otherwise
+    """
+    try:
+        from .models import Specialist
+        
+        specialists = Specialist.objects.filter(university=university)
+        if not specialists.exists():
+            logger.warning(f"No specialists found for university {university.name}")
+            return False
+            
+        recipient_list = [specialist.email for specialist in specialists]
+        
+        send_mail(
+            subject=subject,
+            message=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=recipient_list,
+            fail_silently=False,
+        )
+        
+        logger.info(f"Notification sent to {len(recipient_list)} specialists of {university.name}")
+        return True
+        
+    except Exception as e:
+        logger.error(f"Failed to send notification to specialists: {str(e)}")
+        return False
+        
+
+        
+def notify_reservation_created(reservation):
+    """Notify specialists when a reservation is created"""
+    university = reservation.member.university
+    accommodation = reservation.accommodation
+    member = reservation.member
+    
+    subject = "New Reservation Created"
+    message = f"""
+A new reservation has been created.
+
+Accommodation: {accommodation.name}
+Type: {accommodation.get_type_display()}
+Building: {accommodation.building_name}
+Address: {accommodation.address}
+
+Reserved by: {member.name} ({member.email})
+Period: {reservation.reserved_from} to {reservation.reserved_to}
+Status: {reservation.get_status_display()}
+
+Reservation ID: {reservation.id}
+    """
+    
+    return send_notification_to_specialists(university, subject, message)
+    
+def notify_reservation_cancelled(reservation):
+    """Notify specialists when a reservation is cancelled"""
+    university = reservation.member.university
+    accommodation = reservation.accommodation
+    member = reservation.member
+    
+    subject = "Reservation Cancelled"
+    message = f"""
+A reservation has been cancelled.
+
+Accommodation: {accommodation.name}
+Type: {accommodation.get_type_display()}
+Building: {accommodation.building_name}
+Address: {accommodation.address}
+
+Reserved by: {member.name} ({member.email})
+Period: {reservation.reserved_from} to {reservation.reserved_to}
+Status: {reservation.get_status_display()}
+
+Reservation ID: {reservation.id}
+    """
+    
+    return send_notification_to_specialists(university, subject, message)
+    
+
+    
+def notify_reservation_status_changed(reservation, old_status):
+    """Notify specialists when reservation status changes"""
+    university = reservation.member.university
+    accommodation = reservation.accommodation
+    member = reservation.member
+    
+    subject = f"Reservation Status Changed: {old_status} → {reservation.get_status_display()}"
+    message = f"""
+A reservation status has changed from {old_status} to {reservation.get_status_display()}.
+
+Accommodation: {accommodation.name}
+Type: {accommodation.get_type_display()}
+Building: {accommodation.building_name}
+Address: {accommodation.address}
+
+Reserved by: {member.name} ({member.email})
+Period: {reservation.reserved_from} to {reservation.reserved_to}
+
+Reservation ID: {reservation.id}
+    """
+    
+    return send_notification_to_specialists(university, subject, message)
