@@ -141,10 +141,10 @@ def create_initial_data(sender, **kwargs):
             university=hku
         )
         CandyChan, created = Member.objects.get_or_create(
-            name='Tao',
+            name='CandyChan',
             email='candychan@gmail.com',
             phone='3528 6925',
-            university=hkust
+            university=hku
         )
         BillyJohnson, created = Member.objects.get_or_create(
             name='Billy Johnson',

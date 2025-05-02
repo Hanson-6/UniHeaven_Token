@@ -1,5 +1,3 @@
-# views.py
-
 import logging
 from django.db.models import Q
 from rest_framework import viewsets, status, filters
@@ -251,6 +249,13 @@ class ReservationViewSet(viewsets.ModelViewSet):
     authentication_classes = [UniversityTokenAuthentication]
     permission_classes = [IsUniversityAuthenticated]
 
+    def get_queryset(self):
+        university = self.request.user
+        print(f"Authenticated university: {university.name}")
+        queryset = Reservation.objects.filter(member__university=university)
+        print(f"Filtered reservations count: {queryset.count()}")
+        return queryset
+
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -278,8 +283,12 @@ class ReservationViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['post'], url_path='cancel')
     def cancel(self, request, pk=None):
         reservation = self.get_object()
-        if reservation.status == 'CONFIRMED':
+        if reservation.status == 'CANCELLED':
+            return Response({"error": "Reservation is already cancelled"}, status=status.HTTP_400_BAD_REQUEST)
+        elif reservation.status == 'CONFIRMED':
             return Response({"error": "Cannot cancel a confirmed reservation"}, status=status.HTTP_400_BAD_REQUEST)
+        elif reservation.status != 'PENDING':
+            return Response({"error": "Only pending reservations can be cancelled"}, status=status.HTTP_400_BAD_REQUEST)
         
         old_status = reservation.status
         reservation.status = 'CANCELLED'
