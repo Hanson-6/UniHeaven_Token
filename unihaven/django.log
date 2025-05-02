@@ -1,0 +1,310 @@
+DEBUG 2025-05-02 02:55:04,122 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 02:55:04,289 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 02:55:04,299 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 02:55:04,463 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 02:55:04,472 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 02:55:04,571 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 02:55:04,584 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 02:55:04,765 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+INFO 2025-05-02 02:55:09,690 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 02:55:09,690 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 02:55:11,167 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 02:55:11,167 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 02:55:11,189 basehttp "GET /api/ HTTP/1.1" 200 10985
+INFO 2025-05-02 02:55:11,189 basehttp "GET /api/ HTTP/1.1" 200 10985
+INFO 2025-05-02 02:55:43,535 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 02:55:43,535 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 02:55:44,701 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 02:55:44,701 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 02:55:44,720 basehttp "GET /api/ HTTP/1.1" 200 10985
+INFO 2025-05-02 02:55:44,720 basehttp "GET /api/ HTTP/1.1" 200 10985
+INFO 2025-05-02 02:55:46,877 basehttp "GET /api/ HTTP/1.1" 200 10985
+INFO 2025-05-02 02:55:46,877 basehttp "GET /api/ HTTP/1.1" 200 10985
+INFO 2025-05-02 02:55:47,500 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 02:55:47,500 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 02:55:47,511 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4184
+INFO 2025-05-02 02:55:47,511 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4184
+INFO 2025-05-02 02:55:51,191 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 02:55:51,191 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 02:55:51,201 basehttp "GET /admin/ HTTP/1.1" 200 13172
+INFO 2025-05-02 02:55:51,201 basehttp "GET /admin/ HTTP/1.1" 200 13172
+INFO 2025-05-02 02:55:55,597 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 02:55:55,597 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 02:55:55,615 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:55:55,615 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:27,618 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/admin.py changed, reloading.
+INFO 2025-05-02 02:58:27,618 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/admin.py changed, reloading.
+INFO 2025-05-02 02:58:27,901 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 02:58:27,901 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 02:58:33,495 basehttp "GET /admin/core/reservation/?o=5 HTTP/1.1" 200 18491
+INFO 2025-05-02 02:58:33,495 basehttp "GET /admin/core/reservation/?o=5 HTTP/1.1" 200 18491
+INFO 2025-05-02 02:58:33,504 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:33,504 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:34,577 basehttp "GET /admin/core/reservation/?o=-5 HTTP/1.1" 200 18508
+INFO 2025-05-02 02:58:34,577 basehttp "GET /admin/core/reservation/?o=-5 HTTP/1.1" 200 18508
+INFO 2025-05-02 02:58:34,594 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:34,594 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:35,294 basehttp "GET /admin/core/reservation/?o=4.-5 HTTP/1.1" 200 18908
+INFO 2025-05-02 02:58:35,294 basehttp "GET /admin/core/reservation/?o=4.-5 HTTP/1.1" 200 18908
+INFO 2025-05-02 02:58:35,309 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:35,309 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:35,863 basehttp "GET /admin/core/reservation/?o=5.4 HTTP/1.1" 200 18889
+INFO 2025-05-02 02:58:35,863 basehttp "GET /admin/core/reservation/?o=5.4 HTTP/1.1" 200 18889
+INFO 2025-05-02 02:58:35,881 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:35,881 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:37,433 basehttp "GET /admin/core/reservation/?o=4 HTTP/1.1" 200 18491
+INFO 2025-05-02 02:58:37,433 basehttp "GET /admin/core/reservation/?o=4 HTTP/1.1" 200 18491
+INFO 2025-05-02 02:58:37,441 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:37,441 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:38,854 basehttp "GET /admin/core/reservation/?o= HTTP/1.1" 200 18238
+INFO 2025-05-02 02:58:38,854 basehttp "GET /admin/core/reservation/?o= HTTP/1.1" 200 18238
+INFO 2025-05-02 02:58:38,866 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:58:38,866 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:59:05,641 basehttp "GET /admin/core/accommodation/ HTTP/1.1" 200 18173
+INFO 2025-05-02 02:59:05,641 basehttp "GET /admin/core/accommodation/ HTTP/1.1" 200 18173
+INFO 2025-05-02 02:59:05,653 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:59:05,653 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 02:59:26,528 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 02:59:26,528 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 02:59:26,799 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 02:59:26,799 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:00:44,640 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:00:44,640 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:00:44,931 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:00:44,931 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:00:48,150 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:00:48,150 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:00:48,416 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:00:48,416 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:00:55,714 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:00:55,714 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:00:55,978 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:00:55,978 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:01:01,773 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:01,773 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:01,782 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:01,782 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:02,812 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:02,812 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:02,824 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:02,824 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:04,261 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:04,261 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:04,278 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:04,278 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:04,990 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:04,990 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:05,000 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:05,000 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:05,454 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:05,454 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:01:05,462 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:01:05,462 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:27:46,628 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:27:46,628 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:27:47,044 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:27:47,044 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:27:56,411 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:27:56,411 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:27:56,693 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:27:56,693 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:27:57,852 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:27:57,852 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:27:58,128 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:27:58,128 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:27:59,276 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:27:59,276 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:27:59,536 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:27:59,536 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:28:01,712 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:28:01,712 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:28:01,976 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:28:01,976 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:28:03,124 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:28:03,124 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:28:03,402 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:28:03,402 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:28:04,589 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:28:04,589 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:28:04,848 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:28:04,848 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:28:08,627 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 03:28:08,627 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 03:28:08,646 basehttp "GET /api/ HTTP/1.1" 200 10985
+INFO 2025-05-02 03:28:08,646 basehttp "GET /api/ HTTP/1.1" 200 10985
+INFO 2025-05-02 03:28:11,155 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:11,155 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:11,163 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:11,163 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:11,815 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:11,815 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:11,831 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:11,831 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:13,413 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:13,413 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:13,424 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:13,424 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:15,575 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:28:15,575 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:28:15,588 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:15,588 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:17,516 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:17,516 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:19,961 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:28:19,961 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:28:19,976 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:19,976 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:43,985 basehttp "POST /admin/core/reservation/5/change/ HTTP/1.1" 200 20961
+INFO 2025-05-02 03:28:43,985 basehttp "POST /admin/core/reservation/5/change/ HTTP/1.1" 200 20961
+INFO 2025-05-02 03:28:43,996 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:43,996 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:28:46,541 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:28:46,541 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:28:47,919 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:28:47,919 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:29:01,617 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:29:01,617 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:29:01,633 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:29:01,633 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:29:16,738 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:29:16,738 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:29:17,085 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:29:17,085 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:29:20,278 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:29:20,278 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:29:20,547 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:29:20,547 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:29:22,709 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:29:22,709 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:29:23,036 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:29:23,036 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:29:26,028 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:29:26,028 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18006
+INFO 2025-05-02 03:29:34,314 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:29:34,314 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:29:34,330 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:29:34,330 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:29:38,472 basehttp "POST /admin/core/reservation/5/change/ HTTP/1.1" 200 20961
+INFO 2025-05-02 03:29:38,472 basehttp "POST /admin/core/reservation/5/change/ HTTP/1.1" 200 20961
+INFO 2025-05-02 03:29:38,480 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:29:38,480 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:29:41,969 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:29:41,969 basehttp "GET /admin/core/reservation/5/change/ HTTP/1.1" 200 20557
+INFO 2025-05-02 03:29:50,866 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:29:50,866 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 03:29:51,148 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:29:51,148 autoreload Watching for file changes with StatReloader
+DEBUG 2025-05-02 03:32:58,888 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:32:59,019 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:32:59,024 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:32:59,239 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:32:59,248 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:32:59,382 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:32:59,388 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:32:59,524 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:33:37,936 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:33:38,064 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:33:38,067 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:33:38,237 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:33:38,244 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:33:38,339 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:33:38,345 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:33:38,475 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:35:17,148 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:35:17,279 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:35:17,282 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:35:17,414 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:35:17,418 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:35:17,520 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 03:35:17,525 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 03:35:17,664 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+INFO 2025-05-02 03:35:23,447 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:35:23,447 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:35:24,526 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 03:35:24,526 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 03:35:24,542 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 03:35:24,542 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 03:35:26,682 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 03:35:26,682 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 03:35:27,406 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 03:35:27,406 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 03:35:27,418 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4184
+INFO 2025-05-02 03:35:27,418 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4184
+INFO 2025-05-02 03:35:53,364 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:35:53,364 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 03:35:54,641 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 03:35:54,641 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 03:35:54,658 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 03:35:54,658 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 03:35:57,415 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 03:35:57,415 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 03:35:57,823 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 03:35:57,823 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 03:35:57,832 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4184
+INFO 2025-05-02 03:35:57,832 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4184
+INFO 2025-05-02 03:36:01,053 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 03:36:01,053 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 03:36:01,062 basehttp "GET /admin/ HTTP/1.1" 200 13172
+INFO 2025-05-02 03:36:01,062 basehttp "GET /admin/ HTTP/1.1" 200 13172
+INFO 2025-05-02 03:36:03,957 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18046
+INFO 2025-05-02 03:36:03,957 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18046
+INFO 2025-05-02 03:36:03,975 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 03:36:03,975 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 04:00:51,033 basehttp "GET /admin/ HTTP/1.1" 200 13172
+INFO 2025-05-02 04:00:51,033 basehttp "GET /admin/ HTTP/1.1" 200 13172
+INFO 2025-05-02 04:00:52,748 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 04:00:52,748 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 04:00:52,760 basehttp "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,760 basehttp "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,761 basehttp "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,761 basehttp "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,762 basehttp "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,762 basehttp "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,764 basehttp "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,764 basehttp "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,764 basehttp "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,764 basehttp "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,764 basehttp "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,764 basehttp "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,767 basehttp "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,767 basehttp "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,768 basehttp "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,768 basehttp "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,767 basehttp "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,767 basehttp "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,771 basehttp "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,771 basehttp "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,771 basehttp "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,771 basehttp "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,776 basehttp "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:52,776 basehttp "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-05-02 04:00:53,791 basehttp "GET /api/docs/swagger/ HTTP/1.1" 200 4645
+INFO 2025-05-02 04:00:53,791 basehttp "GET /api/docs/swagger/ HTTP/1.1" 200 4645
+INFO 2025-05-02 04:00:53,883 basehttp "GET /api/schema/ HTTP/1.1" 200 68557
+INFO 2025-05-02 04:00:53,883 basehttp "GET /api/schema/ HTTP/1.1" 200 68557
+INFO 2025-05-02 04:00:55,237 basehttp "GET /api/docs/swagger/ HTTP/1.1" 200 4645
+INFO 2025-05-02 04:00:55,237 basehttp "GET /api/docs/swagger/ HTTP/1.1" 200 4645
+INFO 2025-05-02 04:00:55,332 basehttp "GET /api/schema/ HTTP/1.1" 200 68557
+INFO 2025-05-02 04:00:55,332 basehttp "GET /api/schema/ HTTP/1.1" 200 68557
+INFO 2025-05-02 04:13:37,278 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/models.py changed, reloading.
+INFO 2025-05-02 04:13:37,278 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/models.py changed, reloading.
+INFO 2025-05-02 04:13:37,669 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 04:13:37,669 autoreload Watching for file changes with StatReloader
+DEBUG 2025-05-02 04:24:20,865 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 04:24:20,993 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 04:24:20,999 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 04:24:21,142 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 04:24:21,151 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 04:24:21,289 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 04:24:21,301 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 04:24:21,554 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+INFO 2025-05-02 04:24:26,069 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 04:24:26,069 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 04:24:27,916 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 04:24:27,916 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 04:24:27,931 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 04:24:27,931 basehttp "GET /api/ HTTP/1.1" 200 6152
+WARNING 2025-05-02 04:24:29,670 log Forbidden: /api/accommodations/
+WARNING 2025-05-02 04:24:29,670 log Forbidden: /api/accommodations/
+WARNING 2025-05-02 04:24:29,671 basehttp "GET /api/accommodations/ HTTP/1.1" 403 5093
+WARNING 2025-05-02 04:24:29,671 basehttp "GET /api/accommodations/ HTTP/1.1" 403 5093
