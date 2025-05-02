@@ -308,3 +308,465 @@ WARNING 2025-05-02 04:24:29,670 log Forbidden: /api/accommodations/
 WARNING 2025-05-02 04:24:29,670 log Forbidden: /api/accommodations/
 WARNING 2025-05-02 04:24:29,671 basehttp "GET /api/accommodations/ HTTP/1.1" 403 5093
 WARNING 2025-05-02 04:24:29,671 basehttp "GET /api/accommodations/ HTTP/1.1" 403 5093
+DEBUG 2025-05-02 04:55:51,122 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 04:55:52,456 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 04:55:52,467 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 04:55:52,665 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 04:55:52,676 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 04:55:52,858 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 04:55:52,890 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 04:55:53,034 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+INFO 2025-05-02 04:55:59,011 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 04:55:59,011 autoreload Watching for file changes with StatReloader
+WARNING 2025-05-02 04:56:56,280 log Forbidden: /api/reservations/3/
+WARNING 2025-05-02 04:56:56,280 log Forbidden: /api/reservations/3/
+WARNING 2025-05-02 04:56:56,280 basehttp "POST /api/reservations/3/ HTTP/1.1" 403 26
+WARNING 2025-05-02 04:56:56,280 basehttp "POST /api/reservations/3/ HTTP/1.1" 403 26
+INFO 2025-05-02 04:57:17,781 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 04:57:17,781 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 04:57:18,990 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 04:57:18,990 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 04:57:19,006 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 04:57:19,006 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 04:57:21,724 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 04:57:21,724 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 04:57:22,108 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 04:57:22,108 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 04:57:22,120 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4184
+INFO 2025-05-02 04:57:22,120 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4184
+INFO 2025-05-02 04:57:22,126 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,126 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,127 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,127 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,127 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,127 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,128 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,128 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,129 basehttp "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,129 basehttp "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,130 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,131 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,131 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:22,130 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:27,142 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 04:57:27,142 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-05-02 04:57:27,153 basehttp "GET /admin/ HTTP/1.1" 200 13172
+INFO 2025-05-02 04:57:27,153 basehttp "GET /admin/ HTTP/1.1" 200 13172
+INFO 2025-05-02 04:57:27,162 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:27,162 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:27,165 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:27,165 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:27,165 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:27,165 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,034 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18046
+INFO 2025-05-02 04:57:30,034 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18046
+INFO 2025-05-02 04:57:30,046 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,046 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,047 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,047 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,048 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,049 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,049 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,048 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,048 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,049 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,049 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,048 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,051 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,054 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,051 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,055 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 04:57:30,054 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,055 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,055 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 04:57:30,055 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,057 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,057 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,062 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,062 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,072 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,072 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,073 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:30,073 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,534 basehttp "GET /admin/core/university/ HTTP/1.1" 200 15971
+INFO 2025-05-02 04:57:45,534 basehttp "GET /admin/core/university/ HTTP/1.1" 200 15971
+INFO 2025-05-02 04:57:45,544 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,544 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,545 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,545 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,545 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,545 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,545 basehttp "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,546 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,545 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,548 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,546 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,549 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,550 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 04:57:45,550 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,548 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,549 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,550 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 04:57:45,550 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,552 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,552 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,552 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,553 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,553 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,553 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,552 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,553 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,553 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,553 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,554 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,554 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,558 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,558 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,558 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,558 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,567 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,567 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,567 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-05-02 04:57:45,567 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+ERROR 2025-05-02 04:57:55,844 log Internal Server Error: /api/reservations/3
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/3/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 04:57:55,844 log Internal Server Error: /api/reservations/3
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/3/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 04:57:55,845 basehttp "POST /api/reservations/3 HTTP/1.1" 500 70191
+ERROR 2025-05-02 04:57:55,845 basehttp "POST /api/reservations/3 HTTP/1.1" 500 70191
+WARNING 2025-05-02 04:57:59,681 log Bad Request: /api/reservations/
+WARNING 2025-05-02 04:57:59,681 log Bad Request: /api/reservations/
+WARNING 2025-05-02 04:57:59,681 basehttp "POST /api/reservations/ HTTP/1.1" 400 168
+WARNING 2025-05-02 04:57:59,681 basehttp "POST /api/reservations/ HTTP/1.1" 400 168
+ERROR 2025-05-02 04:58:15,825 log Internal Server Error: /api/reservations/3
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/3/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 04:58:15,825 log Internal Server Error: /api/reservations/3
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/3/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 04:58:15,826 basehttp "POST /api/reservations/3 HTTP/1.1" 500 70191
+ERROR 2025-05-02 04:58:15,826 basehttp "POST /api/reservations/3 HTTP/1.1" 500 70191
+WARNING 2025-05-02 04:58:22,578 log Bad Request: /api/reservations/3/cancel/
+WARNING 2025-05-02 04:58:22,578 log Bad Request: /api/reservations/3/cancel/
+WARNING 2025-05-02 04:58:22,578 basehttp "POST /api/reservations/3/cancel/ HTTP/1.1" 400 44
+WARNING 2025-05-02 04:58:22,578 basehttp "POST /api/reservations/3/cancel/ HTTP/1.1" 400 44
+INFO 2025-05-02 04:59:21,115 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 04:59:21,115 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 04:59:21,512 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 04:59:21,512 autoreload Watching for file changes with StatReloader
+WARNING 2025-05-02 04:59:50,123 log Forbidden: /api/reservations/
+WARNING 2025-05-02 04:59:50,123 log Forbidden: /api/reservations/
+WARNING 2025-05-02 04:59:50,124 basehttp "POST /api/reservations/ HTTP/1.1" 403 30
+WARNING 2025-05-02 04:59:50,124 basehttp "POST /api/reservations/ HTTP/1.1" 403 30
+ERROR 2025-05-02 04:59:54,075 log Internal Server Error: /api/reservations/get
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/get/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 04:59:54,075 log Internal Server Error: /api/reservations/get
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/get/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 04:59:54,075 basehttp "POST /api/reservations/get HTTP/1.1" 500 70075
+ERROR 2025-05-02 04:59:54,075 basehttp "POST /api/reservations/get HTTP/1.1" 500 70075
+INFO 2025-05-02 05:00:02,724 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:00:02,724 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:00:03,117 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:00:03,117 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-02 05:00:05,432 log Internal Server Error: /api/reservations/get
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/get/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 05:00:05,432 log Internal Server Error: /api/reservations/get
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/get/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 05:00:05,434 basehttp "POST /api/reservations/get HTTP/1.1" 500 70075
+ERROR 2025-05-02 05:00:05,434 basehttp "POST /api/reservations/get HTTP/1.1" 500 70075
+ERROR 2025-05-02 05:00:06,275 log Internal Server Error: /api/reservations/get
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/get/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 05:00:06,275 log Internal Server Error: /api/reservations/get
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/get/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 05:00:06,276 basehttp "POST /api/reservations/get HTTP/1.1" 500 70075
+ERROR 2025-05-02 05:00:06,276 basehttp "POST /api/reservations/get HTTP/1.1" 500 70075
+INFO 2025-05-02 05:00:14,566 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:00:14,566 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:00:14,885 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:00:14,885 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-02 05:00:18,768 log Internal Server Error: /api/reservations/get
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/get/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 05:00:18,768 log Internal Server Error: /api/reservations/get
+Traceback (most recent call last):
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/haha/Documents/Application/miniconda/envs/3297/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/reservations/get/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2025-05-02 05:00:18,769 basehttp "POST /api/reservations/get HTTP/1.1" 500 70075
+ERROR 2025-05-02 05:00:18,769 basehttp "POST /api/reservations/get HTTP/1.1" 500 70075
+WARNING 2025-05-02 05:00:21,402 log Forbidden: /api/reservations/
+WARNING 2025-05-02 05:00:21,402 log Forbidden: /api/reservations/
+WARNING 2025-05-02 05:00:21,402 basehttp "POST /api/reservations/ HTTP/1.1" 403 30
+WARNING 2025-05-02 05:00:21,402 basehttp "POST /api/reservations/ HTTP/1.1" 403 30
+WARNING 2025-05-02 05:00:51,481 log Bad Request: /api/reservations/
+WARNING 2025-05-02 05:00:51,481 log Bad Request: /api/reservations/
+WARNING 2025-05-02 05:00:51,489 basehttp "POST /api/reservations/ HTTP/1.1" 400 168
+WARNING 2025-05-02 05:00:51,489 basehttp "POST /api/reservations/ HTTP/1.1" 400 168
+INFO 2025-05-02 05:00:59,922 basehttp "GET /api/reservations/ HTTP/1.1" 200 1738
+INFO 2025-05-02 05:00:59,922 basehttp "GET /api/reservations/ HTTP/1.1" 200 1738
+INFO 2025-05-02 05:03:10,609 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 05:03:10,609 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 05:03:10,982 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:03:10,982 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:03:14,212 basehttp "GET /api/reservations/ HTTP/1.1" 200 1738
+INFO 2025-05-02 05:03:14,212 basehttp "GET /api/reservations/ HTTP/1.1" 200 1738
+DEBUG 2025-05-02 05:03:38,605 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:03:38,882 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:03:38,893 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:03:39,159 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:03:39,167 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:03:39,317 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:03:39,321 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:03:39,528 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:03:58,774 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:03:58,883 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:03:58,888 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:03:59,032 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:03:59,036 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:03:59,166 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:03:59,170 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:03:59,311 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+INFO 2025-05-02 05:04:18,201 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:04:18,201 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:04:20,823 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 05:04:20,823 basehttp "GET / HTTP/1.1" 302 0
+INFO 2025-05-02 05:04:20,839 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 05:04:20,839 basehttp "GET /api/ HTTP/1.1" 200 6152
+INFO 2025-05-02 05:04:24,191 basehttp "GET /admin/core/reservation/ HTTP/1.1" 302 0
+INFO 2025-05-02 05:04:24,191 basehttp "GET /admin/core/reservation/ HTTP/1.1" 302 0
+INFO 2025-05-02 05:04:24,209 basehttp "GET /admin/login/?next=/admin/core/reservation/ HTTP/1.1" 200 4218
+INFO 2025-05-02 05:04:24,209 basehttp "GET /admin/login/?next=/admin/core/reservation/ HTTP/1.1" 200 4218
+INFO 2025-05-02 05:04:27,189 basehttp "POST /admin/login/?next=/admin/core/reservation/ HTTP/1.1" 302 0
+INFO 2025-05-02 05:04:27,189 basehttp "POST /admin/login/?next=/admin/core/reservation/ HTTP/1.1" 302 0
+INFO 2025-05-02 05:04:27,206 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18058
+INFO 2025-05-02 05:04:27,206 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18058
+INFO 2025-05-02 05:04:27,221 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:04:27,221 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:04:29,882 basehttp "GET /admin/core/accommodation/ HTTP/1.1" 200 18205
+INFO 2025-05-02 05:04:29,882 basehttp "GET /admin/core/accommodation/ HTTP/1.1" 200 18205
+INFO 2025-05-02 05:04:29,898 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-05-02 05:04:29,898 basehttp "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-05-02 05:04:29,900 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:04:29,900 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:04:31,794 basehttp "GET /admin/core/accommodationuniversity/ HTTP/1.1" 200 16219
+INFO 2025-05-02 05:04:31,794 basehttp "GET /admin/core/accommodationuniversity/ HTTP/1.1" 200 16219
+INFO 2025-05-02 05:04:31,811 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:04:31,811 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:04:36,130 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18058
+INFO 2025-05-02 05:04:36,130 basehttp "GET /admin/core/reservation/ HTTP/1.1" 200 18058
+INFO 2025-05-02 05:04:36,149 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:04:36,149 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+WARNING 2025-05-02 05:05:10,292 log Forbidden: /api/reservations/
+WARNING 2025-05-02 05:05:10,292 log Forbidden: /api/reservations/
+WARNING 2025-05-02 05:05:10,292 basehttp "GET /api/reservations/ HTTP/1.1" 403 26
+WARNING 2025-05-02 05:05:10,292 basehttp "GET /api/reservations/ HTTP/1.1" 403 26
+INFO 2025-05-02 05:05:15,688 basehttp "GET /admin/core/university/ HTTP/1.1" 200 15971
+INFO 2025-05-02 05:05:15,688 basehttp "GET /admin/core/university/ HTTP/1.1" 200 15971
+INFO 2025-05-02 05:05:15,702 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:05:15,702 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:05:24,815 basehttp "GET /api/reservations/ HTTP/1.1" 200 1744
+INFO 2025-05-02 05:05:24,815 basehttp "GET /api/reservations/ HTTP/1.1" 200 1744
+INFO 2025-05-02 05:09:43,549 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:09:43,549 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:09:43,921 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:09:43,921 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:09:45,079 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:09:45,079 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:09:45,358 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:09:45,358 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:09:51,470 basehttp "GET /api/reservations/ HTTP/1.1" 200 391
+INFO 2025-05-02 05:09:51,470 basehttp "GET /api/reservations/ HTTP/1.1" 200 391
+INFO 2025-05-02 05:10:18,823 basehttp "GET /api/reservations/ HTTP/1.1" 200 387
+INFO 2025-05-02 05:10:18,823 basehttp "GET /api/reservations/ HTTP/1.1" 200 387
+INFO 2025-05-02 05:10:55,333 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:10:55,333 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:10:55,709 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:10:55,709 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:13:06,502 basehttp "GET /api/reservations/ HTTP/1.1" 200 387
+INFO 2025-05-02 05:13:06,502 basehttp "GET /api/reservations/ HTTP/1.1" 200 387
+INFO 2025-05-02 05:14:13,876 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 05:14:13,876 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/signals.py changed, reloading.
+INFO 2025-05-02 05:14:14,245 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:14:14,245 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:14:27,684 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:14:27,684 autoreload /Users/haha/Library/Mobile Documents/com~apple~CloudDocs/Documents/HKU/COMP3297/GP/Test/Sprint_3_new/unihaven/core/views.py changed, reloading.
+INFO 2025-05-02 05:14:27,943 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:14:27,943 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:14:31,548 basehttp "GET /api/reservations/ HTTP/1.1" 200 387
+INFO 2025-05-02 05:14:31,548 basehttp "GET /api/reservations/ HTTP/1.1" 200 387
+DEBUG 2025-05-02 05:14:54,232 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:14:54,457 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Jolly+Villa&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:14:54,466 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:14:54,614 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=South+View+Garden&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:14:54,623 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:14:54,725 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Glen+Haven&n=1 HTTP/1.1" 200 None
+DEBUG 2025-05-02 05:14:54,735 connectionpool Starting new HTTPS connection (1): www.als.ogcio.gov.hk:443
+DEBUG 2025-05-02 05:14:54,939 connectionpool https://www.als.ogcio.gov.hk:443 "GET /lookup?q=Prosperity+Mansion&n=1 HTTP/1.1" 200 None
+INFO 2025-05-02 05:15:20,814 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 05:15:20,814 autoreload Watching for file changes with StatReloader
+WARNING 2025-05-02 05:15:25,060 log Forbidden: /api/reservations/
+WARNING 2025-05-02 05:15:25,060 log Forbidden: /api/reservations/
+WARNING 2025-05-02 05:15:25,061 basehttp "GET /api/reservations/ HTTP/1.1" 403 26
+WARNING 2025-05-02 05:15:25,061 basehttp "GET /api/reservations/ HTTP/1.1" 403 26
+INFO 2025-05-02 05:15:32,391 basehttp "GET /admin/core/university/ HTTP/1.1" 302 0
+INFO 2025-05-02 05:15:32,391 basehttp "GET /admin/core/university/ HTTP/1.1" 302 0
+INFO 2025-05-02 05:15:32,408 basehttp "GET /admin/login/?next=/admin/core/university/ HTTP/1.1" 200 4216
+INFO 2025-05-02 05:15:32,408 basehttp "GET /admin/login/?next=/admin/core/university/ HTTP/1.1" 200 4216
+INFO 2025-05-02 05:15:35,515 basehttp "POST /admin/login/?next=/admin/core/university/ HTTP/1.1" 302 0
+INFO 2025-05-02 05:15:35,515 basehttp "POST /admin/login/?next=/admin/core/university/ HTTP/1.1" 302 0
+INFO 2025-05-02 05:15:35,530 basehttp "GET /admin/core/university/ HTTP/1.1" 200 15971
+INFO 2025-05-02 05:15:35,530 basehttp "GET /admin/core/university/ HTTP/1.1" 200 15971
+INFO 2025-05-02 05:15:35,547 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:15:35,547 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-05-02 05:15:43,126 basehttp "GET /api/reservations/ HTTP/1.1" 200 52
+INFO 2025-05-02 05:15:43,126 basehttp "GET /api/reservations/ HTTP/1.1" 200 52
+INFO 2025-05-02 05:15:51,921 basehttp "GET /api/reservations/ HTTP/1.1" 200 1404
+INFO 2025-05-02 05:15:51,921 basehttp "GET /api/reservations/ HTTP/1.1" 200 1404
+INFO 2025-05-02 05:16:13,764 basehttp "GET /api/reservations/ HTTP/1.1" 200 1404
+INFO 2025-05-02 05:16:13,764 basehttp "GET /api/reservations/ HTTP/1.1" 200 1404
+INFO 2025-05-02 05:16:30,175 basehttp "GET /api/reservations/ HTTP/1.1" 200 1404
+INFO 2025-05-02 05:16:30,175 basehttp "GET /api/reservations/ HTTP/1.1" 200 1404
+WARNING 2025-05-02 05:17:11,271 log Forbidden: /api/reservations/
+WARNING 2025-05-02 05:17:11,271 log Forbidden: /api/reservations/
+WARNING 2025-05-02 05:17:11,274 basehttp "GET /api/reservations/ HTTP/1.1" 403 26
+WARNING 2025-05-02 05:17:11,274 basehttp "GET /api/reservations/ HTTP/1.1" 403 26
+INFO 2025-05-02 05:17:16,514 basehttp "GET /api/reservations/ HTTP/1.1" 200 391
+INFO 2025-05-02 05:17:16,514 basehttp "GET /api/reservations/ HTTP/1.1" 200 391

@@ -1,5 +1,3 @@
-# views.py
-
 import logging
 from django.db.models import Q
 from rest_framework import viewsets, status, filters
@@ -390,6 +388,13 @@ class ReservationViewSet(viewsets.ModelViewSet):
             Q(member_id__in=university_members) & 
             Q(accommodation_id__in=university_accommodations)
         )
+
+    def get_queryset(self):
+        university = self.request.user
+        print(f"Authenticated university: {university.name}")
+        queryset = Reservation.objects.filter(member__university=university)
+        print(f"Filtered reservations count: {queryset.count()}")
+        return queryset
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
