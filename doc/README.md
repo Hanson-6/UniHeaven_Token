@@ -23,7 +23,15 @@ unihaven/
 ├── core/              # Main Django app (models, views, templates, static, etc.)
 │   ├── admin.py
 │   ├── apps.py
+│   ├── authentication.py
 │   ├── models.py
+│   ├── permissions.py
+│   ├── serializers.py
+│   ├── signals.py
+│   ├── test_api.py
+│   ├── test_models.py
+│   ├── urls.py
+│   ├── utils.py
 │   ├── views.py
 │   ├── templates/
 │   │   └── core/      # html files
@@ -41,7 +49,8 @@ unihaven/
 │   ├── urls.py
 │   └── wsgi.py
 ├── manage.py          # Django project management tool
-└── requirements.txt   # Dependency list for pip
+├── requirements.txt   # Dependency list for pip
+└── schma.yaml
 ```
 
 # Installation Instructions
@@ -49,7 +58,7 @@ Follow the steps below to set up the project on your machine:
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-github-repo-url>
+git clone <github-repo-url>
 cd unihaven
 ```
 
@@ -84,7 +93,7 @@ python manage.py runserver
 a folder (doc) for putting the non-code info inside the project
 
 - Markdown files
-  - `prerequisites`
+  - `README`
 
 # Git Management guideline
 
@@ -123,9 +132,9 @@ With `pipenv`
 pipenv requirements > requirements.txt
 ```
 
-## Running the testcoverage for API endpoints and the distance calculation function
+## Running the testcoverage for API endpoints
 ```bash
 coverage run --source='core' --branch manage.py test core
 coverage report -m
 coverage html
-```bash
+```
