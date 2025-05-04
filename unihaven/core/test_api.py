@@ -248,6 +248,55 @@ class AccommodationAPITest(GlobalMockedTestCase):
         self.assertEqual(slot.end_date.isoformat(), '2025-11-30')
         self.assertTrue(slot.is_available)
 
+    def test_update_accommodation(self, *mocked_functions):
+        """Test updating an accommodation's information"""
+        # Get the initial state of the accommodation
+        url = f'/api/accommodations/{self.accommodation.id}/'
+        
+        # Prepare updated data with ALL required fields
+        updated_data = {
+            'name': 'Updated Accommodation Name',
+            'building_name': 'Updated Building Name',
+            'description': 'Updated description text',
+            'type': self.accommodation.type,  # Keep the original type
+            'num_bedrooms': 3,  # Change from 2 to 3 bedrooms
+            'num_beds': self.accommodation.num_beds,
+            'address': self.accommodation.address,
+            'geo_address': self.accommodation.geo_address,
+            'latitude': self.accommodation.latitude,
+            'longitude': self.accommodation.longitude,
+            'monthly_rent': '5500.00',  # Increase the rent
+            'min_reservation_days': self.accommodation.min_reservation_days,
+            'is_available': self.accommodation.is_available,
+            'owner_details': {
+                'name': self.owner.name,
+                'email': self.owner.email,
+                'phone': self.owner.phone
+            },
+            'university_ids': [self.university.id]
+        }
+        
+        # Send PUT request to update the accommodation
+        response = self.client.put(url, updated_data, format='json')
+        
+        # Check status code
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
+        # Verify accommodation was updated in the database
+        self.accommodation.refresh_from_db()
+        self.assertEqual(self.accommodation.name, updated_data['name'])
+        self.assertEqual(self.accommodation.building_name, updated_data['building_name'])
+        self.assertEqual(self.accommodation.description, updated_data['description'])
+        self.assertEqual(str(self.accommodation.monthly_rent), updated_data['monthly_rent'])
+        self.assertEqual(self.accommodation.num_bedrooms, updated_data['num_bedrooms'])
+        
+        # Verify response contains updated values
+        self.assertEqual(response.data['name'], updated_data['name'])
+        self.assertEqual(response.data['building_name'], updated_data['building_name'])
+        self.assertEqual(response.data['description'], updated_data['description'])
+        self.assertEqual(response.data['monthly_rent'], updated_data['monthly_rent'])
+        self.assertEqual(response.data['num_bedrooms'], updated_data['num_bedrooms'])
+
     def test_search_accommodations(self, *mocked_functions):
         """Test searching for accommodations with filters"""
         # Create a test member for the search

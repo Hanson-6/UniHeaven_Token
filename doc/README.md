@@ -138,3 +138,28 @@ coverage run --source='core' --branch manage.py test core
 coverage report -m
 coverage html
 ```
+
+# Detailed List of Additions Made After the April 30 Review
+## Authentication
++ The API uses token-based authentication for universities:
+    
+  - Each university has a unique token that must be included in the Authorization header.  
+  Format: `Authorization: Token <university_token>`
+  - The token will generate randomly each time when creating a university.
+
+
+## Email Backends
++ When a student reserves a accommodation, cancels a reservation and signs a contract, UniHeaven will automatically send an email to the specialist group of the university where the student is located.
+
+  + For development and testing purposes, this project implements Django's Console Email Backend to elegantly simulate email delivery. 
+
+
+## Rating
++ Change the rating range from 1 to 5 to 0 to 5.
+
+## Testcase
++ Added token-based authentication for university entities
++ Added extensive test coverage for AvailabilitySlot objects
+
+## Domain Model
++ Remove unnecessary attributes which already shown by relation
